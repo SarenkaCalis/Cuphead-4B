@@ -9,6 +9,10 @@ public class Movement : MonoBehaviour
     public Rigidbody2D PlayerRb;
     public float speed;
     public float jumpForce;
+    public bool isGrounded = false;
+    public Transform isGroundedChecker;
+    public float checkGroundRadius;
+    public LayerMask groundLayer;
 
     #endregion
 
@@ -23,9 +27,22 @@ public class Movement : MonoBehaviour
 
     void Jump()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             PlayerRb.velocity = new Vector2(PlayerRb.velocity.x, jumpForce);
+        }
+    }
+
+    void CheckIfGrounded()
+    {
+        Collider2D collider = Physics2D.OverlapCircle(isGroundedChecker.position, checkGroundRadius, groundLayer);
+        if(collider !=null)
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
         }
     }
 
@@ -40,5 +57,6 @@ public class Movement : MonoBehaviour
     {
         Move();
         Jump();
+        CheckIfGrounded();
     }
 }
