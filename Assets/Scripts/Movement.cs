@@ -6,13 +6,13 @@ public class Movement : MonoBehaviour
 {
     #region Variables
 
-    public Rigidbody2D PlayerRb;
-    public float speed;
-    public float jumpForce;
-    public bool isGrounded = false;
-    public Transform isGroundedChecker;
-    public float checkGroundRadius;
-    public LayerMask groundLayer;
+    Rigidbody2D PlayerRb;
+    [SerializeField] float speed;
+    [SerializeField] float jumpForce;
+    bool isGrounded = false;
+    [SerializeField] Transform isGroundedChecker;
+    [SerializeField] float checkGroundRadius;
+    [SerializeField] LayerMask groundLayer;
 
     #endregion
 
@@ -36,14 +36,9 @@ public class Movement : MonoBehaviour
     void CheckIfGrounded()
     {
         Collider2D collider = Physics2D.OverlapCircle(isGroundedChecker.position, checkGroundRadius, groundLayer);
-        if(collider !=null)
-        {
-            isGrounded = true;
-        }
-        else
-        {
-            isGrounded = false;
-        }
+        isGrounded = collider != null ? true : false;
+        //if (collider !=null){isGrounded = true;}
+        //else{isGrounded = false;}
     }
 
     #endregion
