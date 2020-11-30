@@ -17,6 +17,18 @@ public class Movement : MonoBehaviour
     #endregion
 
     #region Functions
+	
+    void Start()
+    {   
+        PlayerRb = GetComponent<Rigidbody2D>();
+    }
+
+    void Update()
+    {
+        Move();
+        Jump();
+        CheckIfGrounded();
+    }
 
     void Move()
     {
@@ -43,15 +55,4 @@ public class Movement : MonoBehaviour
 
     #endregion
 
-    void Start()
-    {   
-        PlayerRb = GetComponent<Rigidbody2D>();
-    }
-
-    void Update()
-    {
-        Move();
-        Jump();
-        CheckIfGrounded();
-    }
 }
