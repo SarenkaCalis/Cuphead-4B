@@ -10,17 +10,17 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = 3;
         hptext = GetComponentInParent<Text>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        hptext.text = "HP: " + health;
-    }
+
     public void TakeDamage()
     {
         health += -1;
+        UpdateUI();
+    }
+    private void UpdateUI()
+    {
+        hptext.text = "HP: " + health;
     }
 }
