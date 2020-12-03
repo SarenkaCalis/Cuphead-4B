@@ -7,7 +7,8 @@ public class Movement : MonoBehaviour
     #region Variables
 
     Rigidbody2D PlayerRb;
-    [SerializeField] float speed;
+    [SerializeField] [Range(6,10)] float speed;
+    [SerializeField] float dash;
     [SerializeField] float jumpForce;
     bool isGrounded = false;
     [SerializeField] Transform isGroundedChecker;
@@ -28,6 +29,7 @@ public class Movement : MonoBehaviour
         Move();
         Jump();
         CheckIfGrounded();
+        Dash();
     }
 
     void Move()
@@ -35,6 +37,18 @@ public class Movement : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float moveBy = x * speed;
         PlayerRb.velocity = new Vector2(moveBy, PlayerRb.velocity.y);
+    }
+
+    void Dash()
+    {
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            PlayerRb.constraints = RigidbodyConstraints2D.FreezePositionY;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            PlayerRb.constraints = RigidbodyConstraints2D.None;
+        }
     }
 
     void Jump()
@@ -49,8 +63,6 @@ public class Movement : MonoBehaviour
     {
         Collider2D collider = Physics2D.OverlapCircle(isGroundedChecker.position, checkGroundRadius, groundLayer);
         isGrounded = collider != null ? true : false;
-        //if (collider !=null){isGrounded = true;}
-        //else{isGrounded = false;}
     }
 
     #endregion
