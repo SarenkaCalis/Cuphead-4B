@@ -48,6 +48,7 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             PlayerRb.constraints = RigidbodyConstraints2D.None;
+            PlayerRb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
     }
 
