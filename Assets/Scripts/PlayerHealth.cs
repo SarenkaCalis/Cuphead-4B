@@ -4,18 +4,30 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] Health health;
+    [SerializeField] UpdateUI UIScript;
+    [SerializeField] int health;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Updateui();
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if(Input.GetKeyDown(KeyCode.Space)){
-            health.TakeDamage();
+            Damage(1);
         }
+    }
+
+    private void Damage(int damageAmount)
+    {
+        health -= damageAmount;
+        Updateui();
+    }
+    private void Updateui()
+    {
+        UIScript.ChangeUI(health);
     }
 }
