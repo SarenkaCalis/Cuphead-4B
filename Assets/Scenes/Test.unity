@@ -935,7 +935,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
-  dash: 4
   jumpForce: 10
   isGroundedChecker: {fileID: 485373431}
   checkGroundRadius: 0.05
@@ -953,7 +952,6 @@ GameObject:
   - component: {fileID: 1934921155}
   - component: {fileID: 1934921154}
   - component: {fileID: 1934921153}
-  - component: {fileID: 1934921156}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1026,24 +1024,3 @@ Transform:
   m_Father: {fileID: 1796057716}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1934921156
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1934921152}
-  m_BodyType: 0
-  m_Simulated: 0
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 2
