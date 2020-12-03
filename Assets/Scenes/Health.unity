@@ -731,10 +731,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc1a5dfbb18411c4a8b01cb637e6ac1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerRb: {fileID: 932162451}
   speed: 6
   jumpForce: 7
-  isGrounded: 0
   isGroundedChecker: {fileID: 1129244924}
   checkGroundRadius: 0.05
   groundLayer:
